@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Contact | AI Engineer{% endblock %}
+{% block content %}
+<section>
+    <h1>Contact</h1>
+    <form method="post" class="stacked-form">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <label for="id_name">Name</label>
+        {{ form.name }}
+        {{ form.name.errors }}
+
+        <label for="id_email">Email</label>
+        {{ form.email }}
+        {{ form.email.errors }}
+
+        <label for="id_message">Message</label>
+        {{ form.message }}
+        {{ form.message.errors }}
+
+        <button type="submit">Send message</button>
+    </form>
+</section>
+{% endblock %}

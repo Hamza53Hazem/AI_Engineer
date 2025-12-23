@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Services | AI Engineer{% endblock %}
+{% block content %}
+<section>
+    <h1>Services</h1>
+    <div class="card-grid">
+        {% for service in services %}
+            <article class="card">
+                <h3>{{ service.title }}</h3>
+                <p>{{ service.description }}</p>
+                {% if service.icon %}<span class="muted">Icon: {{ service.icon }}</span>{% endif %}
+            </article>
+        {% empty %}
+            <p>No services defined yet.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

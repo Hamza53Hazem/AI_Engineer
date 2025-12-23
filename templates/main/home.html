@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Home | AI Engineer{% endblock %}
+{% block content %}
+<section>
+    <h1>Build With Confidence</h1>
+    <p>Modular Django starter that covers navigation, content, and forms.</p>
+</section>
+<section>
+    <h2>Featured Services</h2>
+    <div class="card-grid">
+        {% for service in services %}
+            <article class="card">
+                <h3>{{ service.title }}</h3>
+                <p>{{ service.description }}</p>
+            </article>
+        {% empty %}
+            <p>No services yet. Use the admin to create some.</p>
+        {% endfor %}
+    </div>
+</section>
+<section>
+    <h2>Testimonials</h2>
+    <div class="card-grid">
+        {% for testimonial in testimonials %}
+            <article class="card">
+                <blockquote>{{ testimonial.quote }}</blockquote>
+                <p class="muted">{{ testimonial.name }}{% if testimonial.role %}, {{ testimonial.role }}{% endif %}</p>
+            </article>
+        {% empty %}
+            <p>Add testimonials from the admin to showcase social proof.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
