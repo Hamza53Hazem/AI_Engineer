@@ -37,7 +37,7 @@ class ContactMessage(models.Model):
 
 	name = models.CharField(max_length=8)
 	email = models.EmailField()
-	message = models.TextField()
+	message = models.TextField(max_length=2000)
 	created_at = models.DateTimeField(auto_now_add=True)
 
 	class Meta:

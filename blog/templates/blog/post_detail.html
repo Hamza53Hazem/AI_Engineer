@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} | AI Engineer{% endblock %}
+
+{% block content %}
+<section>
+    <article class="post-detail">
+        <h1>{{ post.title }}</h1>
+        <p class="muted">
+            By {{ post.author.username }} | {{ post.created_at|date:"M d, Y" }}
+            {% if post.category %} | {{ post.category.name }}{% endif %}
+        </p>
+        <div class="post-content">
+            {{ post.content|linebreaks }}
+        </div>
+        <br>
+        <a href="{% url 'blog_home' %}" class="button">← Back to Blog</a>
+    </article>
+</section>
+{% endblock %}
